@@ -7,6 +7,6 @@ class: invert
 
 # About this contents
 
-GitHub Pages: 
+GitHub Pages: [https://inoue-ryoki.github.io/sample_marp/ - GitHub](https://inoue-ryoki.github.io/sample_marp/)
 
 Repository: [https://github.com/inoue-ryoki/sample_marp - GitHub](https://github.com/inoue-ryoki/sample_marp)
