@@ -50,6 +50,29 @@ root.render(
 # Props
 
 コンポーネントに渡す引数のようなもの
+これを使う事によって、値を柔軟に代入できる。
+
+例
+
+```
+import React from 'react';
+
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Greeting name="Alice" />
+      <Greeting name="Bob" />
+    </div>
+  );
+}
+
+export default App;
+
+```
 
 # State
 
@@ -109,6 +132,7 @@ export const App = () {
 
 # useEffect
 
+ReactのuseEffectは、関数コンポーネント内で副作用（side effects）を実行するためのフックです。副作用とは、コンポーネントのレンダリングに直接関係しない処理のことを指します。例えば、データのフェッチ、DOMの操作、サブスクリプションの設定や解除などが含まれます
 
 # カスタムフック
 
