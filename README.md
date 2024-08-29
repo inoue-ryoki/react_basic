@@ -7,9 +7,9 @@ class: invert
 
 # About this contents
 
-GitHub Pages: [https://inoue-ryoki.github.io/sample_marp/](https://inoue-ryoki.github.io/react_basic/)
+GitHub Pages: [https://inoue-ryoki.github.io/react_basic/](https://inoue-ryoki.github.io/react_basic/)
 
-Repository: [https://github.com/inoue-ryoki/sample_marp - GitHub](https://github.com/inoue-ryoki/react_basic)
+Repository: [https://github.com/inoue-ryoki/react_basic - GitHub](https://github.com/inoue-ryoki/react_basic)
 
 # Reactの良いところ
 - **WEBページの表示が高速に**: ページ全体が更新されず、更新された所のみ変更。
@@ -108,3 +108,49 @@ export const App = () {
 
 
 # useEffect
+
+
+# カスタムフック
+
+- ただの関数の事
+- hooksの各機能を使用
+- コンポーネントからロジックを分離
+- 使いまわし、テスト容易
+- 自由に作れる。use～ という名前にする
+
+例
+
+```
+export const useAllUsers = () => {
+  const [userProfiles, setUserProfiles] = useState<Array<UserProfile>>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const getUsers = () => {
+    setLoading(true);
+    setError(false);
+    axios
+      .get<Array<User>>("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        const data = res.data.map((user) => ({
+          id: user.id,
+          name: `${user.name}(${user.username})`,
+          email: user.email,
+          address: `${user.address.city}${user.address.suite}${user.address.street}`,
+        }));
+        setUserProfiles(data);
+      })
+      .catch(() => {
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  return { getUsers, userProfiles, loading, error };
+};
+```
+
+カスタムフックと普通の関数の違いは、Reactのフック(useState, useEffect)を使用している事。
+名前がuse～ から始まる事等
