@@ -47,6 +47,32 @@ root.render(
 )
 ```
 
+## コンポーネントに書いてるReact FCとは？
+
+React.FCとはコンポーネントの型定義である。React.FCは、constによる型定義でコンポーネントを定義できる型です。コンポーネントというのはReact独自のタグで、オリジナルのタグを作成し、タグの中で他のタグをまとめて定義できるものです。
+
+```
+const MyTag: React.FC = () => {
+  return <div>こんにちは</div>;
+};
+
+const Container: React.FC = () => {
+  return <MyTag />;
+};
+```
+
+多分以下のように属性値を使う事が多い？
+
+```
+const MyTag: React.FC<{ title: string; }> = (props) => {
+  return <div>{props.title}</div>;
+};
+
+const Container: React.FC = () => {
+  return <MyTag title="こんばんは" />;
+};
+```
+
 # Props
 
 コンポーネントに渡す引数のようなもの
