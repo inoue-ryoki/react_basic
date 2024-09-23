@@ -61,7 +61,7 @@ const Container: React.FC = () => {
 };
 ```
 
-多分以下のように属性値を使う事が多い？
+多分以下のように属性値を使う事が多い？まだあまり良く分からない
 
 ```
 const MyTag: React.FC<{ title: string; }> = (props) => {
