@@ -83,20 +83,21 @@ const Container: React.FC = () => {
 ```
 import React from 'react';
 
-function Greeting(props) {
+const Greeting = (props) => {
   return <h1>Hello, {props.name}!</h1>;
-}
+};
 
-function App() {
+const App = () => {
   return (
     <div>
       <Greeting name="Alice" />
       <Greeting name="Bob" />
     </div>
   );
-}
+};
 
 export default App;
+
 
 ```
 
